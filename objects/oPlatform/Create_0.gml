@@ -1,0 +1,2 @@
+//Variable Setup
+dragging = false;
