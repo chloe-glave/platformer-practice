@@ -63,6 +63,14 @@
             }
         },
         {
+            "Key": "217b18d0-2dac-42d0-afe3-19f15b810736",
+            "Value": {
+                "id": "1b3712a6-fafd-46ce-a2f1-2a5c8081317c",
+                "resourcePath": "rooms\\wall_jumping\\wall_jumping.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "22cce85c-e7c6-435d-9c51-08075f621312",
             "Value": {
                 "id": "13d04996-aa98-4f10-add3-f8b1dbce9627",
