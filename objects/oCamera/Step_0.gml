@@ -1,7 +1,7 @@
 ///@description Main Code
 
 // Make camera follow player
-x = x + (xTo - x)/25
+x = x + (xTo - x)/25 // the /25 makes the camera move smoother
 y = y + (yTo - y)/25
 
 
