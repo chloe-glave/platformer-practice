@@ -1,6 +1,6 @@
 /// @description Main Code
 
-#region //Keyboard Checks
+#region Keyboard Checks
 key_left = keyboard_check(vk_left);
 key_right = keyboard_check(vk_right);
 key_up = keyboard_check(vk_up);
@@ -11,7 +11,7 @@ key_shoot = keyboard_check_pressed(vk_space);
 #endregion
 
 
-#region //Direction Checks
+#region Direction Checks
 if key_right = true
 {
 	global.pdir = 1;
@@ -24,7 +24,7 @@ if key_left = true
 #endregion
 
 
-#region //Death Check
+#region Death Check
 if global.pdead == true
 {
 	vsp = -7;
@@ -36,7 +36,7 @@ if global.pdead == true
 #endregion
 
 
-#region //Movement
+#region Movement
 var move = key_right-key_left;
 hsp = 5*move;
 
@@ -47,18 +47,29 @@ if float = false
 #endregion
 
 
-#region //Jumping
+#region Jumping
+// Regular Jumps
 if key_up = true
 {
 	if (place_meeting(x,y+1,oWall))
 	{
-		vsp = -10;
+		vsp = -10; // Jump
+	}
+	
+	if not (place_meeting(x, y+1, oWall))
+	{
+		if (place_meeting(bbox_left, y, oWall)) or (place_meeting(bbox_right, y, oWall))
+		{
+			hsp *= -1; // Reverse x direction
+			vsp = -10; // Jump
+		}
 	}
 }
+
 #endregion
 
 
-#region //Horizontal Collision
+#region Horizontal Collision
 if (place_meeting(x+hsp,y,oWall))
 {
 	while not (place_meeting(x+sign(hsp),y,oWall))
@@ -70,7 +81,7 @@ if (place_meeting(x+hsp,y,oWall))
 #endregion
 
 
-#region //Vertical Collison
+#region Vertical Collison
 if (place_meeting(x,y+vsp,oWall))
 {
 	while not (place_meeting(x,y+sign(vsp),oWall))
@@ -82,7 +93,7 @@ if (place_meeting(x,y+vsp,oWall))
 #endregion
 
 
-#region //Shooting
+#region Shooting
 if key_shoot = true
 {
 	if shootdelay = false
@@ -95,7 +106,7 @@ if key_shoot = true
 #endregion
 
 
-#region //Teleport (Orion's code)
+#region Teleport (Orion's code)
 
 if (key_right-key_left != 0)
 {
@@ -172,7 +183,7 @@ if global.ntele > 0
 #endregion
 
 
-#region //Movement & Animations
+#region Movement & Animations
 image_xscale = global.pdir;
 if sprite_index != sPlayer_Dead
 {

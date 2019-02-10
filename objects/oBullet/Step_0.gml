@@ -3,9 +3,9 @@
 //Solid Object Collision
 if not (place_free(x,y))
 {
-	instance_destroy()
+	instance_destroy();
 }
 
 
 //Movement
-x = x + hsp*dir
+x = x + hsp*dir;
